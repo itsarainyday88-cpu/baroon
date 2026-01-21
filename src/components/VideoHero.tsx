@@ -11,32 +11,32 @@ export default function VideoHero() {
         setIsMounted(true);
     }, []);
 
-    useEffect(() => {
-        if (isMounted && videoRef.current) {
+    const handleVideoReady = () => {
+        if (videoRef.current) {
             const video = videoRef.current;
             video.playbackRate = 0.55; // Slightly faster for smoother motion
 
-            // Skip first 7 seconds
-            const startTime = 7.0;
+            // Skip first 7 seconds safely once ready
+            if (video.currentTime < 7) {
+                video.currentTime = 7;
+            }
 
-            const handleEnded = () => {
-                video.currentTime = startTime;
-                video.play().catch(() => { });
-            };
-
-            video.addEventListener('ended', handleEnded);
-
-            const timer = setTimeout(() => {
-                video.currentTime = startTime;
-                video.play().catch(() => { });
-            }, 800);
-
-            return () => {
-                clearTimeout(timer);
-                video.removeEventListener('ended', handleEnded);
-            };
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Auto-play was prevented
+                    // We can retain the muted state and try again or just log it
+                });
+            }
         }
-    }, [isMounted]);
+    };
+
+    const handleVideoEnded = () => {
+        if (videoRef.current) {
+            videoRef.current.currentTime = 7;
+            videoRef.current.play().catch(() => { });
+        }
+    };
 
     return (
         <section className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center">
@@ -51,6 +51,8 @@ export default function VideoHero() {
                     src="/videos/Hong.mp4"
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover z-0 opacity-90 scale-150"
                     style={{ width: '100vw', height: '100vh' }}
+                    onCanPlay={handleVideoReady}
+                    onEnded={handleVideoEnded}
                 />
             )}
 
