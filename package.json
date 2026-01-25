@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "memory": "node ../memory.js",
+    "thinking": "node ../thinking.js",
     "lint": "eslint"
   },
   "dependencies": {

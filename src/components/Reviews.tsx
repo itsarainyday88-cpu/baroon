@@ -4,11 +4,11 @@ import { Star } from "lucide-react";
 const reviews = [
     {
         id: 1,
-        name: "김**님",
+        name: "angelmakoto32님",
         date: "24.01.15 방문",
-        content: "치과 공포증이 너무 심해서 몇 년을 미루다 갔는데, 마취 주사 놓는 줄도 모르게 하나도 안 아파서 놀랐어요. 원장님이 계속 괜찮냐고 물어봐주시고 정말 세심하게 진료해주십니다.",
+        content: "임산부라서 치료가능한지 엄청 걱정하면서 예약했는데 다행히 치료할때 상세히 설명해주시고 아프지않게 해주시고 의사선생님 간호사선생님들께서 엄청 친절하셔서 마음 편히 진료받고왔습니다~",
         rating: 5,
-        tag: "통증 최소화",
+        tag: "예약 후 이용대기 시간 바로 입장",
         type: "영수증 리뷰"
     },
     {
@@ -51,33 +51,43 @@ export default function Reviews() {
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {reviews.map((review) => (
-                        <div key={review.id} className="bg-warmWhite p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-secondary/5 relative">
-                            {/* Naver Icon Watermark */}
-                            <div className="absolute top-6 right-6 font-bold text-[#03C75A]/20 text-4xl font-serif select-none">
-                                "
-                            </div>
-
-                            <div className="flex gap-1 mb-4">
-                                {[...Array(review.rating)].map((_, i) => (
-                                    <svg key={i} className="w-4 h-4 text-[#03C75A]" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                ))}
-                            </div>
-
-                            <p className="text-gray-700 leading-relaxed mb-6 min-h-[4.5rem] line-clamp-3 text-sm">
-                                {review.content}
-                            </p>
-
-                            <div className="flex items-center justify-between pt-6 border-t border-secondary/10">
-                                <div>
-                                    <div className="flex items-center gap-2">
-                                        <p className="font-bold text-secondary text-sm">{review.name}</p>
-                                        <span className="text-[10px] text-gray-400 border border-gray-200 px-1 rounded">{review.type}</span>
+                        <div key={review.id} className="bg-white p-7 rounded-[18px] border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 relative flex flex-col h-full group">
+                            {/* Naver-like Header */}
+                            <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 font-bold text-lg select-none">
+                                        {review.name.charAt(0)}
                                     </div>
-                                    <p className="text-xs text-gray-400 mt-0.5">{review.date}</p>
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <p className="font-bold text-gray-900 text-[15px]">{review.name}</p>
+                                            <span className="text-[11px] text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100 tracking-tight">{review.type}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 mt-0.5">
+                                            <div className="flex gap-0.5">
+                                                {[...Array(review.rating)].map((_, i) => (
+                                                    <Star key={i} className="w-3 h-3 text-[#03C75A] fill-[#03C75A]" />
+                                                ))}
+                                            </div>
+                                            <span className="text-[12px] text-gray-400 font-medium">{review.date}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <span className="text-[10px] font-medium px-2 py-1 bg-white border border-secondary/10 rounded-full text-gray-500">
+                            </div>
+
+                            {/* Review Content */}
+                            <div className="mb-4 flex-grow">
+                                <p className="text-gray-700 text-[15px] leading-[1.6] break-keep tracking-[-0.01em]">
+                                    {review.content}
+                                </p>
+                            </div>
+
+                            {/* Tags */}
+                            <div className="mt-auto pt-4 border-t border-gray-50">
+                                <span className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1.5 bg-[#03C75A]/5 text-[#03C75A] rounded-lg">
+                                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                    </svg>
                                     {review.tag}
                                 </span>
                             </div>

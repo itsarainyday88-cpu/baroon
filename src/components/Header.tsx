@@ -6,26 +6,26 @@ import { motion } from 'framer-motion';
 
 export default function Header() {
     return (
-        <motion.header
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 right-0 z-50 pt-2"
-        >
-            <div className="w-full px-4 flex justify-between items-center">
-                <Link href="/" className="group flex items-center gap-2 cursor-pointer z-50">
-                    {/* Logo Image */}
-                    <div className="relative w-[30rem] md:w-[45rem] h-28 md:h-48 -mt-4 md:-mt-8">
+        <header className="absolute top-0 left-0 right-0 z-50 py-4 px-6 md:px-12">
+            <div className="flex items-center justify-start w-full overflow-hidden">
+                <Link href="/" className="group flex flex-col items-start">
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="relative"
+                        style={{ width: '1000px', height: '220px', maxWidth: '100vw' }}
+                    >
                         <Image
                             src="/images/baroon_logo_user.png"
-                            alt="바른모양치과 - 홈으로 이동"
+                            alt="Logo"
                             fill
-                            className="object-contain object-left-top"
+                            className="object-contain object-left"
                             priority
                         />
-                    </div>
+                    </motion.div>
                 </Link>
             </div>
-        </motion.header>
+        </header>
     );
 }

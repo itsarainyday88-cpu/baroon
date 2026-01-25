@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 
-const notoSans = Noto_Sans_KR({
-  variable: "--font-noto-sans",
+const noto_sans = Noto_Sans_KR({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 const notoSerif = Noto_Serif_KR({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${notoSans.variable} ${notoSerif.variable} antialiased bg-warmWhite text-secondary font-sans`}
+        className={`${noto_sans.variable} ${notoSerif.variable} antialiased bg-warmWhite text-secondary font-sans`}
       >
         {children}
       </body>

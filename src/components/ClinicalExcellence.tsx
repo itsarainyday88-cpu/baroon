@@ -24,7 +24,7 @@ const features = [
     {
         icon: <Moon className="w-8 h-8" />,
         title: "통증 최소화",
-        desc: "가글 마취부터 수면 진료까지, 치과가 두려운 분들을 위한 솔루션.",
+        desc: "가글 마취부터 수면 진료까지, 두려움 없는 치료 환경.",
         color: "bg-blue-50"
     }
 ];

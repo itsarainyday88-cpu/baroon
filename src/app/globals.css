@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #E6DDC4; /* Soft Sand */
-  --color-secondary: #2C4C3B; /* Deep Forest Green */
-  --color-accent: #A48970; /* Matte Bronze */
-  --color-warm-white: #FAFAF9; /* Warm Background */
-  
+  --color-primary: #E6DDC4;
+  /* Soft Sand */
+  --color-secondary: #2C4C3B;
+  /* Deep Forest Green */
+  --color-accent: #A48970;
+  /* Matte Bronze */
+  --color-warm-white: #FAFAF9;
+  /* Warm Background */
+  --color-warmGold: #D4AF37;
+  /* Cinematic Gold */
+  --color-gold: #D4AF37;
+
   --font-serif: var(--font-noto-serif), serif;
   --font-sans: var(--font-noto-sans), sans-serif;
 }
@@ -26,6 +33,11 @@ body {
   font-family: var(--font-sans);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
 }

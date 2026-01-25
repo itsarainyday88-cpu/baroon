@@ -1,20 +1,13 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
-
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Doctors() {
     return (
-        <section className="relative py-24 bg-warmWhite overflow-hidden">
-            {/* Background Texture - Logo Wall */}
-            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-                <Image
-                    src="/images/doctors_bg_logo_v2.png"
-                    alt="Background"
-                    fill
-                    className="object-cover"
-                />
-            </div>
+        <section className="py-24 bg-background relative overflow-hidden">
+            {/* Decoration */}
+            <div className="absolute top-0 right-0 w-[50%] h-full bg-secondary/5 -skew-x-12 translate-x-1/2 -z-10" />
 
             <div className="container-custom relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
