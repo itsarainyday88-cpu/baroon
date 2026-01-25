@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import VideoHero from "@/components/VideoHero";
+
 import Hero from "@/components/Hero";
 import Pledge from "@/components/Pledge";
 import Doctors from "@/components/Doctors";
@@ -13,7 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <EventPopup />
       <Header />
-      <VideoHero />
+
       <Hero />
       <Pledge />
       <Doctors />
